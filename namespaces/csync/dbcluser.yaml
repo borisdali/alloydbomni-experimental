@@ -19,12 +19,12 @@ spec:
   #   enableStandbyAsReadReplica: true
   #   enableAutoFailover: true
   primarySpec:
-    schedulingconfig:
-      # tolerations:
-      # - effect: NoSchedule
-      #   key: workloadtype
-      #   operator: Equal
-      #   value: db
+    # schedulingconfig:
+    #   tolerations:
+    #    - effect: NoSchedule
+    #      key: workloadtype
+    #      operator: Equal
+    #      value: db
     adminUser:
       passwordRef:
         name: db-pw-foo-ha
