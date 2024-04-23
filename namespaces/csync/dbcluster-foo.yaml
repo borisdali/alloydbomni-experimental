@@ -16,7 +16,7 @@ spec:
   databaseVersion: "15.5.1"
   availability:
     numberOfStandbys: 2
-    enableStandbyAsReadReplica: true
+    # enableStandbyAsReadReplica: true
     enableAutoFailover: true
   primarySpec:
     # schedulingconfig:
