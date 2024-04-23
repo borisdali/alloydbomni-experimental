@@ -14,10 +14,10 @@ metadata:
   # namespace: csync
 spec:
   databaseVersion: "15.5.1"
-  # availability:
-  #   numberOfStandbys: 2
-  #   enableStandbyAsReadReplica: true
-  #   enableAutoFailover: true
+  availability:
+    numberOfStandbys: 2
+    enableStandbyAsReadReplica: true
+    enableAutoFailover: true
   primarySpec:
     # schedulingconfig:
     #   tolerations:
