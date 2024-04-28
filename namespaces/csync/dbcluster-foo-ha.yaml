@@ -6,7 +6,6 @@ metadata:
 type: Opaque
 data:
   foo-ha: "Q2hhbmdlTWUxMjM=" # Password is ChangeMe123
-EOF
 ---
 apiVersion: alloydbomni.dbadmin.goog/v1
 kind: DBCluster
