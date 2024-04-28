@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-pw-foo-ha
+  # namespace: csync
+type: Opaque
+data:
+  foo-ha: "Q2hhbmdlTWUxMjM=" # Password is ChangeMe123
+EOF
+---
+apiVersion: alloydbomni.dbadmin.goog/v1
+kind: DBCluster
+metadata:
+  name: foo-ha
+  # namespace: csync
+spec:
+  databaseVersion: "15.5.2"
+  # availability:
+  #   numberOfStandbys: 2
+  #   enableStandbyAsReadReplica: true
+  #   enableAutoFailover: true
+  primarySpec:
+    # schedulingconfig:
+    #   tolerations:
+    #    - effect: NoSchedule
+    #      key: workloadtype
+    #      operator: Equal
+    #      value: db
+    adminUser:
+      passwordRef:
+        name: db-pw-foo-ha
+    resources:
+      memory: 2Gi
+      cpu: 1
+      disks:
+      - name: DataDisk
+        size: 2Gi
+    dbLoadBalancerOptions:
+      annotations:
+        networking.gke.io/load-balancer-type: "internal"
+  allowExternalIncomingTraffic: true
+
